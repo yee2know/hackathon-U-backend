@@ -1,5 +1,6 @@
 import dotenv from "dotenv";
 import express from "express";
+import cors from "cors";
 
 dotenv.config();
 
@@ -18,6 +19,3 @@ app.get("/", (req, res) => {
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
-function cors(): any {
-  throw new Error("Function not implemented.");
-}
