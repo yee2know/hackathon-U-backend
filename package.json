@@ -19,6 +19,7 @@
     "express": "^5.1.0",
     "prisma": "^6.8.1",
     "swagger-ui-express": "^5.0.1",
+    "typescript": "^5.8.3",
     "yamljs": "^0.3.0"
   },
   "devDependencies": {
