@@ -5,17 +5,20 @@ import cors from "cors";
 dotenv.config();
 
 const app = express();
-const port = process.env.PORT;
+const port = process.env.PORT ? Number(process.env.PORT) : 3000;
 
-app.use(cors()); // cors 방식 허용
-app.use(express.static("public")); // 정적 파일 접근
-app.use(express.json()); // request의 본문을 json으로 해석할 수 있도록 함 (JSON 형태의 요청 body를 파싱하기 위함)
-app.use(express.urlencoded({ extended: false })); // 단순 객체 문자열 형태로 본문 데이터 해석
+// 미들웨어 설정
+app.use(cors()); // 모든 origin에서의 요청 허용
+app.use(express.static("public")); // public 폴더 정적 파일 제공
+app.use(express.json()); // JSON 파싱
+app.use(express.urlencoded({ extended: false })); // URL-encoded 파싱
 
+// 라우팅 예시
 app.get("/", (req, res) => {
   res.send("Hello World!");
 });
 
+// 서버 실행
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+  console.log(`🚀 Server running at http://localhost:${port}`);
 });
